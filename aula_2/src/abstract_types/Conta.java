@@ -53,4 +53,12 @@ public class Conta {
         
         return  false;
     }
+
+
+    public void chequeEspecial(double juro)
+    {
+        if (juro > 0)
+            if(this.saldo < 0)
+                this.saldo  *= ((juro+100)/100);
+    }
 }

@@ -46,5 +46,16 @@ public class App {
         c1.sacar(100);
         c1.depositar(100);
         c1.transferir(200, c2);
+
+        System.out.println("Mês 1");
+        for(int i = 1; i <= 30; i ++)
+        {
+            c1.chequeEspecial(0.5);
+            System.out.println("Saldo apos " + i + " dia: "+ c1.saldo);
+        }
+
+        for(int i = 1; i <= 90; i ++)
+                c1.chequeEspecial(0.5);
+        System.out.println("Saldo apos 120 dias (4 meses): "+ c1.saldo);
     }
 }
