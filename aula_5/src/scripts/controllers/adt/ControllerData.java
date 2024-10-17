@@ -1,8 +1,8 @@
 package scripts.controllers.adt;
 
 import java.util.Calendar;
-import java.util.Scanner;
 import scripts.chore.adt.Data;
+import scripts.controllers.java_utils.ScannerHandller;
 
 
 public final class ControllerData
@@ -59,21 +59,17 @@ public final class ControllerData
 
     public static Data inputData()
     {
-        Scanner scaner;
         int day, month, year;
-        
-        scaner = new Scanner(System.in);
 
-        System.out.print("Dia: ");
-        day = scaner.nextInt();
-        
-        System.out.print("\nMês: ");
-        month = scaner.nextInt();
-        
-        System.out.print("\nAno: ");
-        year = scaner.nextInt();
+        ScannerHandller.init();
 
-        scaner.close();
+        System.out.println("Data de Nascimento");
+
+        day = ScannerHandller.getInt("Dia: ");
+        month = ScannerHandller.getInt("Mês: ");
+        year = ScannerHandller.getInt("Ano: ");
+
+        ScannerHandller.end();
 
         return new Data(day, month, year);
     }

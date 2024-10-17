@@ -32,4 +32,9 @@ public class Corrente extends Conta
             if(this.saldo < 0)
                 this.saldo  *= ((juro+100)/100);
     }
+
+    public void set_limite(double limite)
+    {
+        this.limite = limite;
+    }
 }

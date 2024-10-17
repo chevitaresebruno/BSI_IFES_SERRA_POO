@@ -7,21 +7,24 @@ import scripts.chore.conta.Corrente;
 import scripts.chore.conta.Poupanca;
 import scripts.chore.usuarios.Gerente;
 import scripts.chore.usuarios.Pessoa;
-import scripts.controllers.adt.ControllerData;
+import scripts.controllers.conta.ControllerConta;
+import scripts.controllers.usuarios.ControllerPessoa;
 
 public class App {
     public static void main(String[] args) throws Exception
     {
-        Data dataHoje = new Data(9, 10, 2024);
-        Data dataNascimento = new Data(1, 1, 1990);
-        Pessoa pessoa1 = new Pessoa("Alice", dataNascimento, 'F', "123.456.789-00");
-        Gerente gerente1 = new Gerente("Bob", new Data(5, 5, 1985), 'M', "987.654.321-00", "001", "senha123");
-
-        Corrente contaCorrente1 = new Corrente("CC001", pessoa1, dataHoje, gerente1, "SenhaNova");
-        Poupanca poupanca1 = new Poupanca("P001", pessoa1, dataHoje, gerente1);
-
-        // Testando métodos
-        ControllerData.imprimir(dataHoje);
-        System.out.print("OI");
+        Pessoa p1, p2;
+        Gerente g1;
+        Corrente cc1;
+        Poupanca cp1;
+        
+        p1 = new Pessoa("Bruno", new Data(8, 10, 2004), 'M', "12345678911");
+        p2 = ControllerPessoa.inputPerson();
+        g1 = ControllerPessoa.inputGerente();
+        cc1 = ControllerConta.inputCC(g1);
+        cp1 = ControllerConta.inputCP(g1);
+        
+        ControllerConta.extrato(cc1);
+        ControllerConta.extrato(cp1);
     }
 }

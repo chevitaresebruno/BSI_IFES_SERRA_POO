@@ -19,7 +19,7 @@ public class Senha
     {
         this.chave = gerarChave();
         this.iv = gerarIv();
-        this.hash = encrypt(senha, this.chave,this.iv);
+        this.hash = encrypt(senha, this.chave, this.iv);
     }
 
     public boolean compare(String senha) throws Exception

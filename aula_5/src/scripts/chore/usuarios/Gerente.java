@@ -15,8 +15,10 @@ public class Gerente extends Pessoa
         this.senha = new Senha(senha);
     }
 
-    public boolean validarAcesso(String senha) throws Exception
+    public Gerente(Pessoa pessoa, String matricula, String senha) throws Exception
     {
-        return this.senha.compare(senha);
+        super(pessoa.nome, pessoa.dtNasc, pessoa.genero, pessoa.cpf);
+        this.matricula = matricula;
+        this.senha = new Senha(senha);
     }
 }

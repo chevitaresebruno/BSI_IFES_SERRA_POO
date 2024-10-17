@@ -1,22 +1,18 @@
 package scripts.controllers.adt;
 
-import java.util.Scanner;
 import scripts.chore.adt.Senha;
+import scripts.controllers.java_utils.ScannerHandller;
 
 
 public final class ControllerSenha {
     
     public static String inputSenha()
     {
-        Scanner scanner;
         String senha; 
 
-        scanner = new Scanner(System.in);
-
-        System.out.print("Informe a Senha: ");
-        senha = scanner.next();
-        scanner.close();
-        System.out.print("\n");
+        ScannerHandller.init();
+        senha = ScannerHandller.getString("Informe a Senha: ");
+        ScannerHandller.end();
 
         return senha;
     }
